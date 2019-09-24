@@ -1,0 +1,21 @@
+<!-- ngFor de games obtengo un game, que agrego a una card, se repite dependiendo del tamaño de games-->
+<div class="col-md-4" *ngFor="let game of games">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{game.title}}
+            <button class="btn btn-danger" (click)="deleteGame(game.id)">
+                    <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <!-- [src] metodo de angular para indicar una imagen -->
+        <img [src]="game.image" class="card-img-top" alt="">
+        <div class="card-body">
+            <p>{{game.description}}</p>
+            <!--[routerLink] metodo de angular que utiliza en vez de href para redireccionar sin cargar la pag -->
+            <a [routerLink]="['/games/edit',game.id]" class="btn btn-info btn-block">
+                EDIT GAME
+            </a>
+        </div>  
+    </div>
+
+</div>
